@@ -1,0 +1,2 @@
+class DogwalksController < ApplicationController
+end
