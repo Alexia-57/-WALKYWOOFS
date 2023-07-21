@@ -6,7 +6,8 @@ class Booking < ApplicationRecord
   validates :user_id, :dogwalk_id, presence: true
 
   # Validation for start_time, ensuring it is present and in the future
-  validates :start_time, presence: true, timeliness: { on_or_after: -> { Time.current } }
+  # removed , timeliness: { on_or_after: -> { Time.current } }
+  validates :start_time, presence: true
 
   # Validation for total_price, ensuring it is present and a non-negative float value
   validates :total_price, presence: true, numericality: { greater_than_or_equal_to: 0 }

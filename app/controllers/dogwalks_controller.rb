@@ -14,7 +14,7 @@ class DogwalksController < ApplicationController
   private
 
   def set_dogwalks
-    @dogwalks = Dogwalks.find(params[:id])
+    @dogwalk = Dogwalk.find(params[:id])
   end
 
 end

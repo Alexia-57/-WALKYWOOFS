@@ -30,3 +30,17 @@
 .card-product .card-product-infos {
   padding: 16px;
 }
+
+// new cards
+
+.dogwalk-show-cards {
+  display: flex;
+  gap: 50px;
+}
+
+
+.dogwalk-desc-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
