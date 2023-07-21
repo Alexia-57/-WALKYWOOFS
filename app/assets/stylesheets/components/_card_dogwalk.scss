@@ -1,34 +1,21 @@
-.card-product {
-  overflow: hidden;
-  height: 120px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
-}
-
-.card-product img {
+.card {
+  border-radius: 10px;
+  width: 18rem;
   height: 100%;
-  width: 120px;
-  object-fit: cover;
+  overflow: hidden;
 }
 
-.card-product h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
+.card-img-top {
+  width: 100%; /* Set the width to fill the card container */
+  height: 250px; /* Set the desired height for the image */
+  object-fit: cover; /* Maintain aspect ratio and crop image to fit */
 }
 
-.card-product p {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
-}
-
-.card-product .card-product-infos {
-  padding: 16px;
+.card-body {
+  height: 180px; /* Set the desired height for the card body */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 10px; /* Add padding for content spacing */
 }
 
 .dogwalk-link {

@@ -11,41 +11,23 @@
 
   <div class="home-grid">
 
-  <div class="card mt-3" style="width: 18rem;">
-      <img class="card-img-top" src="app/assets/images/example-user.jpg" alt="dog walker picture">
+    <div class="card mt-3" style="width: 18rem;">
+      <img class="card-img-top" src="assets/example-user.jpg">
       <div class="card-body">
-        <h5 class="card-title">Mika Tanaka</h5>
-        <p class="card-text">Description of the dog walker</p>
-        <a href="#" class="dogwalk-link">See details</a>
+        <h5 class="card-title"><%= User.nickname %></h5>
+        <div class="card-text">
+          <p><strong>Area:<%= Dogwalk.neighborhood %></strong></p>
+          <p><strong>Hourly rate:<%= Dogwalk.hourly_rate %></strong></p>
+          <a href="#" class="dogwalk-link">More details...</a>
+        </div>
       </div>
     </div>
 
-    <div class="card mt-3" style="width: 18rem;">
-      <img class="card-img-top" src="app/assets/images/example-user.jpg" alt="dog walker picture">
-      <div class="card-body">
-        <h5 class="card-title">Mika Tanaka</h5>
-        <p class="card-text">Description of the dog walker</p>
-        <a href="#" class="dogwalk-link">See details</a>
-      </div>
-    </div>
-
-    <div class="card mt-3" style="width: 18rem;">
-      <img class="card-img-top" src="app/assets/images/example-user.jpg" alt="dog walker picture">
-      <div class="card-body">
-        <h5 class="card-title">Mika Tanaka</h5>
-        <p class="card-text">Description of the dog walker</p>
-        <a href="#" class="dogwalk-link">See details</a>
-      </div>
-    </div>
-
-    <div class="card mt-3" style="width: 18rem;">
-      <img class="card-img-top" src="app/assets/images/example-user.jpg" alt="dog walker picture">
-      <div class="card-body">
-        <h5 class="card-title">Mika Tanaka</h5>
-        <p class="card-text">Description of the dog walker</p>
-        <a href="#" class="dogwalk-link">See details</a>
-      </div>
-    </div>
+    <ul>
+      <% @dogwalks.each do |dogwalk| %>
+        <li><%= dogwalk.service_details %> - by <%= dogwalk.user.nickname %></li>
+      <% end %>
+    </ul>
 
   </div>
 
