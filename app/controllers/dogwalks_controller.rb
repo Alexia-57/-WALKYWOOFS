@@ -5,8 +5,8 @@ class DogwalksController < ApplicationController
 
   # dogwalk GET    /dogwalks/:id(.:format)                                                                           dogwalks#show
   def show
-    # raise
-    # @dogwalks = dogwalks.find(params[:id])
+    @dogwalk = set_dogwalks
+    @booking = Booking.new
   end
 
   # new_dogwalk GET    /dogwalks/new(.:format)                                                                           dogwalks#new
@@ -16,5 +16,4 @@ class DogwalksController < ApplicationController
   def set_dogwalks
     @dogwalk = Dogwalk.find(params[:id])
   end
-
 end
