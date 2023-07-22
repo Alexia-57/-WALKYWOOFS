@@ -41,3 +41,18 @@
   background: linear-gradient(#147EFF, #0F67DA);
   color: white;
 }
+
+.btn-ghost-banner {
+  color: #4A4A4A;
+  border: 1px solid #4A4A4A;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  transition: opacity 0.8s ease;
+  background: #ffffff;
+}
+
+.btn-ghost-banner:hover {
+  opacity: 1;
+  background: #224bffcd;
+}
