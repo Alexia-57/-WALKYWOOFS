@@ -19,7 +19,7 @@ class DogwalksController < ApplicationController
   def create
     @dogwalk = Dogwalk.new(dogwalk_params)
     @dogwalk.save
-    redirect_to dogwalk_path(@dogwalk)
+    redirect_to dogwalks_path # dogwalk_path(@dogwalk)
   end
 
   private
@@ -29,7 +29,7 @@ class DogwalksController < ApplicationController
   end
 
   def dogwalk_params
-    params.require(:dogwalk).permit(:service_details, :dog_capacity, :neighborhood, :duration, :hourly_rate, :photo)
+    params.require(:dogwalk).permit(:service_details, :dog_capacity, :neighborhood, :duration, :hourly_rate)
   end
 
 end
