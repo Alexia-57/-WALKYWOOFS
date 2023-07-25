@@ -14,6 +14,13 @@ class BookingsController < ApplicationController
     end
   end
 
+  def index
+    @user = current_user
+    mydogwalk = @user.dogwalk
+    @created_dogwalks = @user.bookings #array of all bookings created by the user -Zhan-top first 30 lines
+    @booked_dogwalks = mydogwalk&.bookings #array of all incoming bookings that we recieve -Chirs-bottom from line 31
+  end
+
   private
 
   def booking_params
