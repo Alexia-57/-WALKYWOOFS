@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_22_032137) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_25_122410) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -50,6 +50,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_22_032137) do
     t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "dog_number"
     t.index ["dogwalk_id"], name: "index_bookings_on_dogwalk_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -59,7 +60,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_22_032137) do
     t.integer "dog_capacity"
     t.string "neighborhood"
     t.float "duration"
-    t.float "hourly_rate"
+    t.float "price_per_dog"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
