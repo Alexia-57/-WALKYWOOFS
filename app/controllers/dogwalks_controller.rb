@@ -11,10 +11,25 @@ class DogwalksController < ApplicationController
 
   # new_dogwalk GET    /dogwalks/new(.:format)                                                                           dogwalks#new
   # POST   /dogwalks(.:format)                                                                               dogwalks#create
+
+  def new
+    @dogwalk = Dogwalk.new
+  end
+
+  def create
+    @dogwalk = Dogwalk.new(dogwalk_params)
+    @dogwalk.save
+    redirect_to dogwalk_path(@dogwalk)
+  end
+
   private
 
   def set_dogwalks
     @dogwalk = Dogwalk.find(params[:id])
+  end
+
+  def dogwalk_params
+    params.require(:dogwalk).permit(:service_details, :dog_capacity, :neighborhood, :duration, :hourly_rate, :photo)
   end
 
 end
