@@ -19,8 +19,7 @@ class DogwalksController < ApplicationController
   def create
     @dogwalk = Dogwalk.new(dogwalk_params)
     @dogwalk.save
-    redirect_to dogwalk_path(@dogwalk)
-    # dogwalks_path
+    redirect_to dogwalks_path
   end
 
   private
