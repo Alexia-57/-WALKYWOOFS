@@ -19,8 +19,28 @@ class DogwalksController < ApplicationController
   # new_dogwalk GET    /dogwalks/new(.:format)                                                                           dogwalks#new
   # POST   /dogwalks(.:format)                                                                               dogwalks#create
   private
+  # without photo
+  def dogwalk_params
+    params.require(:dogwalk).permit(:dog_capacity, :neighborhood, :duration, :location, :hourly_rate)
+  end
+
+  # # option with photo
+  # def dogwalk_params
+  #   params.require(:dogwalk).permit(:dog_capacity, :neighborhood, :duration, :location, :hourly_rate, :photo)
+  # end
 
   def set_dogwalks
     @dogwalk = Dogwalk.find(params[:id])
   end
 end
+
+
+# t.text "service_details"
+#     t.integer "dog_capacity"
+#     t.string "neighborhood"
+#     t.float "duration"
+#     t.float "hourly_rate"
+#     t.bigint "user_id", null: false
+#     t.datetime "created_at", null: false
+#     t.datetime "updated_at", null: false
+#     t.index ["user_id"], name: "index_dogwalks_on_user_id"
