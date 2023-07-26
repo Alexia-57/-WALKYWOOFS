@@ -17,8 +17,8 @@ class Dogwalk < ApplicationRecord
   # Validation for duration, ensuring it is present and a non-negative float value
   validates :duration, presence: true, numericality: { greater_than_or_equal_to: 0 }
 
-  # Validation for hourly_rate, ensuring it is present and a non-negative float value
-  validates :hourly_rate, presence: true, numericality: { greater_than_or_equal_to: 0 }
+  # Validation for price_per_dog, ensuring it is present and a non-negative float value
+  validates :price_per_dog, presence: true, numericality: { greater_than_or_equal_to: 0 }
 
   # Validation for user_id, ensuring it is present
   validates :user_id, presence: true

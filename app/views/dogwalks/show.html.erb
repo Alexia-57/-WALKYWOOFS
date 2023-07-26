@@ -4,8 +4,10 @@
     <div class="card-product-infos">
       <h2><%= @dogwalk.user.nickname %>'s Dogwalking Services</h2>
       <h5 class="mb-1"><i class="fa-solid fa-location-dot"></i> <%= @dogwalk.neighborhood %></h5>
-      <h6 class="mb-3"><i class="fa-solid fa-money-bill"></i> $<%= @dogwalk.hourly_rate %> per hour</h6>
+      <h6 class="mb-3"><i class="fa-solid fa-money-bill"></i> $<%= @dogwalk.price_per_dog %> per doggo</h6>
       <p><strong><%= @dogwalk.user.nickname %></strong>'s services can be best described as: "<%= @dogwalk.service_details %>"</p>
+      <h6 class="mb-3"><i class="fa-solid fa-stopwatch"></i> Woofywalk Length: <%= @dogwalk.duration %>hrs </h6>
+      <h6 class="mb-3"><i class="fa-solid fa-paw"></i> Max Woofywalk Paw-rty Size: <%= @dogwalk.dog_capacity %> doggo/s</h6>
     </div>
   </div>
   <%= link_to "FETCH MORE WOOFYWALKS", dogwalks_path, class: "btn btn-ghost mt-4" %>
