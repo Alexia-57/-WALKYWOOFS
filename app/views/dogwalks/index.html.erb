@@ -1,0 +1,33 @@
+<div class="container p-5">
+  <h2>Welcome,<small class="text-body-secondary">
+    Choose your Dogwalker</small></h1>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4 py-5">
+      <% @dogwalks.each do |dogwalk| %>
+        <div class="col">
+            <div class="card text-center">
+              <%= image_tag('doggie.jpg') %>
+              <div class="card-body">
+                <h5 class="card-title"> Dogwalker <%= link_to dogwalk.user.nickname, dogwalk_path(dogwalk.id), class:"text-decoration-none" %></h5>
+                <p class="card-text"> location: <%=dogwalk.neighborhood%></p>
+              </div>
+            </div>
+        </div>
+      <% end %>
+    </div>
+
+</div>
+
+
+
+<%# dogwalker details
+create_table "dogwalks", force: :cascade do |t|
+    t.text "service_details"
+    t.integer "dog_capacity"
+    t.string "neighborhood"
+    t.float "duration"
+    t.float "hourly_rate"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_dogwalks_on_user_id" %>

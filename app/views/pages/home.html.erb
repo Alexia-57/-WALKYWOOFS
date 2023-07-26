@@ -11,48 +11,20 @@
 
   <div class="home-grid">
 
-  <div class="card mt-3" style="width: 18rem;">
-      <img class="card-img-top" src="app/assets/images/example-user.jpg" alt="dog walker picture">
-      <div class="card-body">
-        <h5 class="card-title">Mika Tanaka</h5>
-        <p class="card-text">Description of the dog walker</p>
-        <a href="#" class="dogwalk-link">See details</a>
+    <% @dogwalks.each do |dogwalk| %>
+      <div class="card mt-3" style="width: 18rem; height: 33rem;">
+        <img class="card-img-top" src="assets/example-user.jpg">
+        <div class="card-body">
+          <h3 class="card-title"><%= dogwalk.user.nickname %></h3>
+          <div class="card-text">
+            <p><strong>Service: </strong><%= dogwalk.service_details %></p>
+            <p><strong>Area: </strong><%= dogwalk.neighborhood %></p>
+            <p><strong>Hourly rate: </strong><%= dogwalk.price_per_dog %></p>
+            <!-- <a href="#" class="dogwalk-link">More details...</a> -->
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div class="card mt-3" style="width: 18rem;">
-      <img class="card-img-top" src="app/assets/images/example-user.jpg" alt="dog walker picture">
-      <div class="card-body">
-        <h5 class="card-title">Mika Tanaka</h5>
-        <p class="card-text">Description of the dog walker</p>
-        <a href="#" class="dogwalk-link">See details</a>
-      </div>
-    </div>
-
-    <div class="card mt-3" style="width: 18rem;">
-      <img class="card-img-top" src="app/assets/images/example-user.jpg" alt="dog walker picture">
-      <div class="card-body">
-        <h5 class="card-title">Mika Tanaka</h5>
-        <p class="card-text">Description of the dog walker</p>
-        <a href="#" class="dogwalk-link">See details</a>
-      </div>
-    </div>
-
-    <div class="card mt-3" style="width: 18rem;">
-      <img class="card-img-top" src="app/assets/images/example-user.jpg" alt="dog walker picture">
-      <div class="card-body">
-        <h5 class="card-title">Mika Tanaka</h5>
-        <p class="card-text">Description of the dog walker</p>
-        <a href="#" class="dogwalk-link">See details</a>
-      </div>
-    </div>
+    <% end %>
 
   </div>
-
-  <!-- below button is just for test purpose, will be moved -->
-  <div class="container mt-5">
-    <h1> just for test purpose <h1>
-    <%= link_to "Create Dogwalk", new_dogwalk_path, class: "btn btn-primary" %>
-  </div>
-
 </div>

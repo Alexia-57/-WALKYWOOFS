@@ -15,8 +15,9 @@ class Booking < ApplicationRecord
   # Validation for status, ensuring it is within a specific range of values
   validates :status, inclusion: { in: 0..2 }
 
-  #  validate for uniqueness in user and dogwalks to prevent registering for the same service twice
-  validates :user_id, uniqueness: {scope: :dogwalk_id, message: "is already in the list"}
+  # validate for uniqueness in user and dogwalks to prevent registering for the same service twice
+  # validates :user_id, uniqueness: {scope: :dogwalk_id, message: "is already in the list"}
+  # to validate only one dogwalking service offered per user, do validation in dogwalk
 end
 
 
