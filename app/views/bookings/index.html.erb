@@ -1,0 +1,30 @@
+<% if @booked_dogwalks.any? %>
+  <h2>Bookings I Received</h2>
+  <ul>
+    <% @booked_dogwalks.each do |booking| %>
+      <li>
+        <p>Start Time: <%= booking.start_time %></p>
+        <p>Total Price: <%= booking.total_price %></p>
+        <p>Status: <%= booking.status %></p>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No bookings yet…Don not have a walking service? Click <%= link_to 'here', new_dogwalk_path %> to create one now!</p>
+<% end %>
+
+
+<% if @created_dogwalks.any? %>
+  <h2>Bookings I Created</h2>
+  <ul>
+    <% @created_dogwalks.each do |booking| %>
+      <li>
+        <p>Start Time: <%= booking.start_time %></p>
+        <p>Total Price: <%= booking.total_price %></p>
+        <p>Status: <%= booking.status %></p>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No bookings yet…click <%= link_to 'here', new_booking_path %> to book your next dog walk.</p>
+<% end %>
