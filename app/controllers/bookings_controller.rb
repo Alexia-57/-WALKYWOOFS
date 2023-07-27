@@ -18,9 +18,9 @@ class BookingsController < ApplicationController
 
   def index
     @user = current_user
-    mydogwalk = @user.dogwalk #currently with error
-    @created_dogwalks = @user.bookings #array of all bookings created by the user -Zhan-top first 30 lines
-    @booked_dogwalks = mydogwalk&.bookings #array of all incoming bookings that we recieve -Chirs-bottom from line 31
+    mydogwalk = @user.dogwalk
+    @created_dogwalks = @user.bookings
+    @booked_dogwalks = mydogwalk&.bookings
   end
 
   private
