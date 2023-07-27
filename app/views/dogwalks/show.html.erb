@@ -22,6 +22,7 @@
         <h3>Book Your Next Dogwalk!</h3>
         <%= simple_form_for [@dogwalk, @booking] do |f| %>
           <%= f.input :start_time, as: :datetime %>
+          <%= f.input :dog_number, as: :integer %>
           <%= f.submit class: "btn btn-flat" %>
         <% end %>
       </div>
