@@ -1,29 +1,36 @@
 <div class="container">
-  <div class="card-product">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCmfEqVq3BwZ_yyAbsXZ6UiTpASJMvrzEj_g&usqp=CAU" />
-    <div class="card-product-infos">
-      <h2><%= @dogwalk.user.nickname %>'s Dogwalking Services</h2>
-      <h5 class="mb-1"><i class="fa-solid fa-location-dot"></i> <%= @dogwalk.neighborhood %></h5>
-      <h6 class="mb-3"><i class="fa-solid fa-money-bill"></i> $<%= @dogwalk.price_per_dog %> per doggo</h6>
-      <p><strong><%= @dogwalk.user.nickname %></strong>'s services can be best described as: "<%= @dogwalk.service_details %>"</p>
-      <h6 class="mb-3"><i class="fa-solid fa-stopwatch"></i> Woofywalk Length: <%= @dogwalk.duration %>hrs </h6>
-      <h6 class="mb-3"><i class="fa-solid fa-paw"></i> Max Woofywalk Paw-rty Size: <%= @dogwalk.dog_capacity %> doggo/s</h6>
-    </div>
-  </div>
-  <%= link_to "FETCH MORE WOOFYWALKS", dogwalks_path, class: "btn btn-ghost mt-4" %>
-  <%# <%= link_to "FETCH MORE WOOFYWALKS", dogwalks_path %>
-  <%# <%= link_to "Know more about us", about_path %>
-</div>
-
-<div class="container py-5">
   <div class="row">
-    <div class="col-12 col-md-6 offset-lg-3">
-      <div class="bg-white rounded p-3 shadow">
-        <h3>Book Your Next Dogwalk!</h3>
-        <%= simple_form_for [@dogwalk, @booking] do |f| %>
-          <%= f.input :start_time, as: :datetime %>
-          <%= f.submit class: "btn btn-flat" %>
-        <% end %>
+    <!-- Dogwalking card -->
+    <div class="col-md-6">
+      <div class="container mt-5">
+        <div class="card-dogwalk">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCmfEqVq3BwZ_yyAbsXZ6UiTpASJMvrzEj_g&usqp=CAU" class="card-dogwalk-img-top"/>
+          <div class="card-dogwalk-body">
+            <h2 class="mt-4 mb-4"><%= @dogwalk.user.nickname %>'s Dogwalking Services</h2>
+            <h5 class="mb-3"><i class="fa-solid fa-location-dot"></i> <%= @dogwalk.neighborhood %></h5>
+            <p class="mb-3"><i class="fa-solid fa-money-bill"></i> $<%= @dogwalk.price_per_dog %> per doggo</p>
+            <p class="mb-3"><i class="fa-solid fa-stopwatch"></i> Woofywalk Length: <%= @dogwalk.duration %>hours </p>
+            <p class="mb-3"><i class="fa-solid fa-paw"></i> Max Woofywalk Paw-rty Size: <%= @dogwalk.dog_capacity %> doggo/s</p>
+            <p><strong><%= @dogwalk.user.nickname %></strong>'s services can be best described as: "<%= @dogwalk.service_details %>"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Booking form -->
+    <div class="col-md-6">
+      <div class="container mt-5">
+        <div class="row">
+          <div class="col-12">
+            <div class="bg-white rounded p-3 shadow">
+              <h3>Book Your Next Dogwalk!</h3>
+              <%= simple_form_for [@dogwalk, @booking] do |f| %>
+                <%= f.input :start_time, as: :datetime %>
+                <%= f.submit class: "btn btn-flat" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
