@@ -10,8 +10,7 @@
   </div>
 
   <div class="home-grid">
-
-    <% @dogwalks.each do |dogwalk| %>
+    <% @dogwalks.sample(3).each do |dogwalk| %>
       <div class="card mt-3" style="width: 18rem; height: 33rem;">
         <img class="card-img-top" src="assets/example-user.jpg">
         <div class="card-body">
@@ -26,6 +25,5 @@
         </div>
       </div>
     <% end %>
-
   </div>
 </div>
