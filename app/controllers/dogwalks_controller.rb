@@ -18,20 +18,27 @@ class DogwalksController < ApplicationController
 
   # new_dogwalk GET    /dogwalks/new(.:format)                                                                           dogwalks#new
   # POST   /dogwalks(.:format)                                                                               dogwalks#create
-  private
-  # without photo
-  def dogwalk_params
-    params.require(:dogwalk).permit(:dog_capacity, :neighborhood, :duration, :location, :hourly_rate)
+
+  def new
+    @dogwalk = Dogwalk.new
   end
 
-  # # option with photo
-  # def dogwalk_params
-  #   params.require(:dogwalk).permit(:dog_capacity, :neighborhood, :duration, :location, :hourly_rate, :photo)
-  # end
+  def create
+    @dogwalk = Dogwalk.new(dogwalk_params)
+    @dogwalk.save
+    redirect_to dogwalks_path
+  end
+
+  private
 
   def set_dogwalks
     @dogwalk = Dogwalk.find(params[:id])
   end
+
+  def dogwalk_params
+    params.require(:dogwalk).permit(:service_details, :dog_capacity, :neighborhood, :duration, :hourly_rate)
+  end
+
 end
 
 

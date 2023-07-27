@@ -1,0 +1,13 @@
+<div class ="container mt-5">
+  <h1>Add a walking service</h1>
+  <br>
+    <%= simple_form_for(@dogwalk) do |f| %>
+    <%= f.input :service_details %>
+    <%= f.input :dog_capacity %>
+    <%= f.input :neighborhood %>
+    <%= f.input :duration %>
+    <%= f.input :hourly_rate %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit %>
+  <% end %>
+</div>
