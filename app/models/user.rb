@@ -18,14 +18,15 @@ class User < ApplicationRecord
   # Validation for reset_password_token, ensuring it is unique
   validates :reset_password_token, uniqueness: true, allow_blank: true
 
-  # Validation for nickname, ensuring it is present and not empty
-  validates :nickname, presence: true
+  # # temporarily turning these off for now to allow signins:
+  # # Validation for nickname, ensuring it is present and not empty
+  # validates :nickname, presence: true
 
-  # Validation for pet_details, ensuring it is present
-  validates :pet_details, presence: true
+  # # Validation for pet_details, ensuring it is present
+  # validates :pet_details, presence: true
 
-  # Validation for pickup_spot, ensuring it is present and not empty
-  validates :pickup_spot, presence: true
+  # # Validation for pickup_spot, ensuring it is present and not empty
+  # validates :pickup_spot, presence: true
 end
 
 # # schema for reference

@@ -57,13 +57,15 @@ dogwalks_data = [
 
 dogwalks_data.each do |dogwalk_info|
   user = User.find_by(nickname: dogwalk_info[:user_name])
+  options = [0.5, 1, 1.5, 2, 2.5, 3]
+
   Dogwalk.create!(
     # image_url: dogwalk_info[:image_url],
     service_details: Faker::Quote.mitch_hedberg,
-    dog_capacity: 1,
+    dog_capacity: rand(1..5),
     neighborhood: Faker::Address.city,
-    duration: 1.5,
-    hourly_rate: 100,
+    duration: options.sample,
+    price_per_dog: rand(50..150),
     user: user
   )
 end

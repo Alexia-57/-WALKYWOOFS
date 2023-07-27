@@ -5,7 +5,9 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.dogwalk = @dogwalk
-    price = @dogwalk.duration.to_i * @dogwalk.hourly_rate.to_i
+    # price = @dogwalk.duration.to_i * @dogwalk.hourly_rate.to_i
+    # # adjusted the folowing to account for price_per_dog
+    price = @dogwalk.duration.to_i * @dogwalk.price_per_dog.to_i
     @booking.total_price = price
     if @booking.save
       redirect_to bookings_path
