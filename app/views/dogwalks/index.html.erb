@@ -3,6 +3,21 @@
     <h1>Welcome, choose your Dogwalker!</h1>
   </div>
 
+    <!-- TODO: Insert inside the `.container`, above the first `.row` -->
+    <div class="row justify-content-center">
+      <div class="col-sm-8 my-3">
+        <%= form_with url: dogwalks_path, method: :get, class: "d-flex" do %>
+          <%= text_field_tag :query,
+                params[:query],
+                class: "form-control",
+                placeholder: "enter region, keyword, price, or favee woofywalker"
+            %>
+          <%= submit_tag "Fetch", name: "", class: "btn btn-info" %>
+        <% end %>
+      </div>
+    </div>
+
+
   <div class="home-grid mt-5 d-flex flex-wrap">
     <% @dogwalks.each do |dogwalk| %>
       <a href="<%= dogwalk_path(dogwalk.id) %>" class="clickable-card">
@@ -14,6 +29,7 @@
               <!-- will need to have code to retrieve dogwalker pic -->
               <p><strong>Area:</strong> <%= dogwalk.neighborhood %></p>
               <p><strong>Price per dog: </strong><%= dogwalk.price_per_dog %>$</p>
+
             </div>
           </div>
         </div>
