@@ -15,15 +15,6 @@
 @import "components/banner";
 @import "components/footer";
 @import "components/avatar";
-@import "components/card_dogwalk";
+@import "components/card_sample";
 @import "components/description";
-
-.home-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 16px;
-  flex-grow: 1;
-  margin-top: 16px;
-  min-width: 0px;
-  min-height: 0px;
-}
+@import "components/card-grid";
