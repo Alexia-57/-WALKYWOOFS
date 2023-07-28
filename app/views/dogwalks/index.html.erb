@@ -2,6 +2,20 @@
   <h2>Welcome,<small class="text-body-secondary">
     Choose your Dogwalker</small></h1>
 
+    <!-- TODO: Insert inside the `.container`, above the first `.row` -->
+    <div class="row justify-content-center">
+      <div class="col-sm-8 my-3">
+        <%= form_with url: dogwalks_path, method: :get, class: "d-flex" do %>
+          <%= text_field_tag :query,
+                params[:query],
+                class: "form-control",
+                placeholder: "enter region, keyword, price, or favee woofywalker"
+            %>
+          <%= submit_tag "Fetch", name: "", class: "btn btn-info" %>
+        <% end %>
+      </div>
+    </div>
+
     <div class="row row-cols-1 row-cols-md-3 g-4 py-5">
       <% @dogwalks.each do |dogwalk| %>
         <div class="col">

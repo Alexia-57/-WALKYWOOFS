@@ -4,6 +4,24 @@ class Dogwalk < ApplicationRecord
   has_one_attached :photo
   # has_many :user, through: :bookings, dependent: :destroy
 
+  # include pg gem search function in model
+  include PgSearch::Model
+
+  # include the following and search by this method name
+  #  name the method anything we want like super_duper_search
+  pg_search_scope :search_by_neighborhood_and_service_details_and_price_per_dog_and_dogwalker,
+    # tell pg search whcih columns to look into
+    against: [ :neighborhood, :service_details, :price_per_dog ],
+    # filter dogwalks via association between user and dogwalk
+    # here we are adding ability to search based on dogwalker name
+    associated_against: {
+      user: [ :nickname ]
+    },
+    using: {
+      # searches for it even if it is half a word
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
+
 
   # Validation for service_details, ensuring it is present and not empty
   validates :service_details, presence: true

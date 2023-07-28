@@ -5,7 +5,7 @@ class DogwalksController < ApplicationController
 
   def index
     if params[:query].present?
-      @dogwalks = Dogwalk.search_by_keyword(params[:query])
+      @dogwalks = Dogwalk.search_by_neighborhood_and_service_details_and_price_per_dog_and_dogwalker(params[:query])
     else
       @dogwalks = Dogwalk.all
     end
