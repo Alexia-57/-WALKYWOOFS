@@ -1,0 +1,12 @@
+.home-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+  flex-grow: 1;
+  margin-top: 16px;
+  min-width: 0px;
+  min-height: 0px;
+  display: flex;
+  flex-wrap: wrap; /* This ensures the cards wrap to the next row if needed */
+  justify-content: center;
+}
