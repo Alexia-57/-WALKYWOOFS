@@ -23,10 +23,19 @@ class BookingsController < ApplicationController
     @booked_dogwalks = mydogwalk&.bookings
   end
 
+  def update
+    @booking = Booking.find(params[:id])
+    if @booking.update(booking_params)
+      redirect_to bookings_path
+    else
+      redirect_to bookings_path
+    end
+  end
+
   private
 
   def booking_params
-    params.require(:booking).permit(:start_time)
+    params.require(:booking).permit(:start_time, :status, :dog_number)
   end
 
   def set_dogwalk
