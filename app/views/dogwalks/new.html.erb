@@ -2,11 +2,11 @@
   <h1>Add a walking service</h1>
   <br>
     <%= simple_form_for(@dogwalk) do |f| %>
-    <%= f.input :service_details %>
-    <%= f.input :dog_capacity %>
-    <%= f.input :neighborhood %>
-    <%= f.input :duration %>
-    <%= f.input :price_per_dog %>
+    <%= f.input :service_details, label: "Service Details" %>
+    <%= f.input :dog_capacity, label: "Max. Number of Dogs" %>
+    <%= f.input :neighborhood, label: "Neighbourhood" %>
+    <%= f.input :duration, label: "Walk Duration (in hrs)" %>
+    <%= f.input :price_per_dog, label: "Price per Dog (in ¥)" %>
     <%= f.input :photo, as: :file %>
     <%= f.submit %>
   <% end %>
