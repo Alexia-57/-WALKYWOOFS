@@ -64,7 +64,7 @@ dogwalks_data.each do |dogwalk_info|
   options = [0.5, 1, 1.5, 2, 2.5, 3]
 
   # Use open-uri to download the image from the provided URL
-  image_file = URI.open(dogwalk_info[:image_url])
+  # image_file = URI.open(dogwalk_info[:image_url])
 
   # Use Cloudinary's uploader to upload the image and get the secure URL
   # cloudinary_response = Cloudinary::Uploader.upload(image_file)
@@ -84,5 +84,5 @@ dogwalks_data.each do |dogwalk_info|
   )
 
   dogwalk.save!
-  dogwalk.photo.attach(io: image_file, filename: "image.jpg")
+  # dogwalk.photo.attach(io: image_file, filename: "image.jpg")
 end
