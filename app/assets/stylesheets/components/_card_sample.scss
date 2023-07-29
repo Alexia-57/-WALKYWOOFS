@@ -98,3 +98,10 @@ a {
   font-weight: lighter;
 }
 }
+
+.card-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Adjust this value to center the card vertically within the viewport */
+}
