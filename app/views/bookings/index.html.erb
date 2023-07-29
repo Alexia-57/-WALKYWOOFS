@@ -1,30 +1,66 @@
-<% if @booked_dogwalks.any? %>
-  <h2>Bookings I Received</h2>
-  <ul>
-    <% @booked_dogwalks.each do |booking| %>
-      <li>
-        <p>Start Time: <%= booking.start_time %></p>
-        <p>Total Price: <%= booking.total_price %></p>
-        <p>Status: <%= booking.status %></p>
-      </li>
+<div class="lists-container">
+  <div class="list-received">
+    <h2>Bookings Received</h2>
+    <% if @booked_dogwalks.nil? %>
+      <h2>No bookings yet… Don't have a walking service? Click <%= link_to 'here', new_dogwalk_path %> to create one now!</h2>
+    <% else %>
+      <div class="bookings">
+        <% @booked_dogwalks.each do |booking| %>
+          <div class="booking">
+            <div class='booking-left'>
+              <div class="booking-info">
+                <div class="booking-info-title">
+                  <h4>from: <%= booking.user.nickname.upcase %></h4>
+                </div>
+                <div class="booking-info-details">
+                  <p>Start Time: <%= booking.start_time.strftime("%B %d, %Y %I:%M %p") %></p>
+                  <p>Total Price: ¥<%= booking.total_price.to_i %></p>
+                </div>
+              </div>
+            </div>
+            <div class="booking-actions">
+              <% if booking.pending? %>
+                <%= simple_form_for booking do |f| %>
+                  <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
+                  <%= f.submit 'Accept', class: 'btn btn-info' %>
+                <% end %>
+                <%= simple_form_for booking do |f| %>
+                  <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
+                  <%= f.submit 'Reject', class: 'btn btn-light' %>
+                <% end %>
+              <% else %>
+                <p class='booking-tag'><%= booking.status %></p>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
     <% end %>
-  </ul>
-<% else %>
-  <p>No bookings yet…Don not have a walking service? Click <%= link_to 'here', new_dogwalk_path %> to create one now!</p>
-<% end %>
+  </div>
 
-
-<% if @created_dogwalks.any? %>
-  <h2>Bookings I Created</h2>
-  <ul>
-    <% @created_dogwalks.each do |booking| %>
-      <li>
-        <p>Start Time: <%= booking.start_time %></p>
-        <p>Total Price: <%= booking.total_price %></p>
-        <p>Status: <%= booking.status %></p>
-      </li>
+  <div class="list-made">
+    <h2>Bookings Made</h2>
+    <% if @created_dogwalks.nil? %>
+      <p>No bookings yet… Click <%= link_to 'here', new_booking_path %> to book your next dog walk</p>
+    <% else %>
+      <div class="bookings">
+        <% @created_dogwalks.each do |booking| %>
+          <div class="booking">
+            <div class='booking-left'>
+              <div class="booking-info">
+                <div class="booking-info-title">
+                  <h4>to: <%= booking.dogwalk.user.nickname.upcase %></h4>
+                </div>
+                <div class="booking-info-details">
+                  <p>Start Time: <%= booking.start_time.strftime("%B %d, %Y %I:%M %p") %></p>
+                  <p>Total Price: ¥<%= booking.total_price.to_i %></p>
+                  <p>Status: <strong><%= booking.status %></strong></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
     <% end %>
-  </ul>
-<% else %>
-  <p>No bookings yet…click <%= link_to 'here', new_booking_path %> to book your next dog walk.</p>
-<% end %>
+  </div>
+</div>

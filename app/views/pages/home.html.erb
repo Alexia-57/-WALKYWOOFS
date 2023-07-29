@@ -18,8 +18,8 @@
           <div class="card-text">
             <p><strong>Service: </strong><%= dogwalk.service_details %></p>
             <p><strong>Area: </strong><%= dogwalk.neighborhood %></p>
-            <p><strong>Price per dog: </strong><%= dogwalk.price_per_dog %>$</p>
-            <p><strong>Walk duration: </strong><%= dogwalk.duration %>h</p>
+            <p><strong>Price per dog: ¥</strong><%= dogwalk.price_per_dog.to_i %></p>
+            <p><strong>Walk duration: </strong><%= dogwalk.duration %> h</p>
             <!-- <a href="#" class="dogwalk-link">More details...</a> -->
           </div>
         </div>

@@ -14,6 +14,7 @@ class DogwalksController < ApplicationController
   def show
     @dogwalk = set_dogwalks
     @booking = Booking.new
+    @user = current_user
   end
 
   # new_dogwalk GET    /dogwalks/new(.:format)                                                                           dogwalks#new

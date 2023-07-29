@@ -10,3 +10,9 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.nav-links-container {
+  display: flex;
+  flex-direction: row; /* Arrange links horizontally */
+  gap: 10px; /* Add some space between the links */
+}
