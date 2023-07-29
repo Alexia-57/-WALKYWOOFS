@@ -18,8 +18,8 @@ require 'open-uri'
 
 puts "Destroying existing records of Dogwalk and Users..."
 
-Dogwalk.destroy_all if Rails.env.development?
-User.destroy_all if Rails.env.development?
+Dogwalk.destroy_all # if Rails.env.development?
+User.destroy_all # if Rails.env.development?
 
 puts "Done deleting.."
 
