@@ -32,7 +32,11 @@
     <!-- Dogwalking card -->
     <div class="card-center">
       <div class="card-dogwalk">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCmfEqVq3BwZ_yyAbsXZ6UiTpASJMvrzEj_g&usqp=CAU" class="card-dogwalk-img-top"/>
+        <% if @dogwalk.photo.attached? %>
+          <%= cl_image_tag(@dogwalk.photo.key, height: 300, width: 400, crop: :fill, class: "card-dogwalk-img-top") %>
+          <% else %>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCmfEqVq3BwZ_yyAbsXZ6UiTpASJMvrzEj_g&usqp=CAU" class="card-dogwalk-img-top"/>
+          <% end %>
         <div class="card-dogwalk-body">
           <h2 class="mt-4 mb-4"><%= @dogwalk.user.nickname %>'s Dogwalking Services</h2>
           <h5 class="mb-3"><i class="fa-solid fa-location-dot"></i> <%= @dogwalk.neighborhood %></h5>
