@@ -37,7 +37,7 @@ class DogwalksController < ApplicationController
   end
 
   def dogwalk_params
-    params.require(:dogwalk).permit(:service_details, :dog_capacity, :neighborhood, :duration, :price_per_dog)
+    params.require(:dogwalk).permit(:service_details, :dog_capacity, :neighborhood, :duration, :price_per_dog, :photo)
   end
 
 end
