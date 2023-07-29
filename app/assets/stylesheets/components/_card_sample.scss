@@ -105,3 +105,20 @@ a {
   align-items: center;
   height: 100vh; /* Adjust this value to center the card vertically within the viewport */
 }
+
+/* Create a flex container to arrange lists side by side */
+.lists-container {
+  display: flex;
+  justify-content: center;
+}
+
+/* Optional: Add some space between the lists */
+.list-received {
+  margin-right: 100px;
+  width: 500px;
+}
+
+.list-made {
+  margin-right: 0;
+  width: 380px;
+}
