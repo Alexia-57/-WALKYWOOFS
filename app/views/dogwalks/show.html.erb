@@ -8,10 +8,10 @@
           <div class="card-dogwalk-body">
             <h2 class="mt-4 mb-4"><%= @dogwalk.user.nickname %>'s Dogwalking Services</h2>
             <h5 class="mb-3"><i class="fa-solid fa-location-dot"></i> <%= @dogwalk.neighborhood %></h5>
-            <p class="mb-3"><i class="fa-solid fa-money-bill"></i> $<%= @dogwalk.price_per_dog %> per doggo</p>
+            <p class="mb-3"><i class="fa-solid fa-money-bill"></i> ¥<%= @dogwalk.price_per_dog.to_i %> per doggo</p>
             <p class="mb-3"><i class="fa-solid fa-stopwatch"></i> Woofywalk Length: <%= @dogwalk.duration %> hours </p>
             <p class="mb-3"><i class="fa-solid fa-paw"></i> Max Woofywalk Paw-rty Size: <%= @dogwalk.dog_capacity %> doggo/s</p>
-            <p><strong><%= @dogwalk.user.nickname %></strong>'s services can be best described as: "<%= @dogwalk.service_details %>"</p>
+            <p><strong><%= @dogwalk.user.nickname %></strong> says... "<%= @dogwalk.service_details %>"</p>
           </div>
         </div>
       </div>
@@ -22,7 +22,7 @@
           <h3>Book Your Next Dogwalk!</h3>
           <%= simple_form_for [@dogwalk, @booking] do |f| %>
             <%= f.input :start_time, as: :datetime %>
-            <%= f.input :dog_number, as: :integer %>
+            <%= f.input :dog_number, as: :integer, label: "Number of Dogs" %>
             <%= f.submit class: "btn btn-flat" %>
           <% end %>
         </div>
@@ -36,10 +36,10 @@
         <div class="card-dogwalk-body">
           <h2 class="mt-4 mb-4"><%= @dogwalk.user.nickname %>'s Dogwalking Services</h2>
           <h5 class="mb-3"><i class="fa-solid fa-location-dot"></i> <%= @dogwalk.neighborhood %></h5>
-          <p class="mb-3"><i class="fa-solid fa-money-bill"></i> $<%= @dogwalk.price_per_dog %> per doggo</p>
+          <p class="mb-3"><i class="fa-solid fa-money-bill"></i> ¥<%= @dogwalk.price_per_dog.to_i %> per doggo</p>
           <p class="mb-3"><i class="fa-solid fa-stopwatch"></i> Woofywalk Length: <%= @dogwalk.duration %> hours </p>
           <p class="mb-3"><i class="fa-solid fa-paw"></i> Max Woofywalk Paw-rty Size: <%= @dogwalk.dog_capacity %> doggo/s</p>
-          <p><strong><%= @dogwalk.user.nickname %></strong>'s services can be best described as: "<%= @dogwalk.service_details %>"</p>
+          <p><strong><%= @dogwalk.user.nickname %></strong> says... "<%= @dogwalk.service_details %>"</p>
         </div>
       </div>
     </div>
