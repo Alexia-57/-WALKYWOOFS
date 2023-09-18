@@ -5,7 +5,7 @@
       <div class="col-md-6">
         <div class="card-dogwalk">
           <% if @dogwalk.photo.attached? %>
-            <%= cl_image_tag @dogwalk.photo.key, height: 300, width: 400, crop: :fill %>
+            <%= cl_image_tag @dogwalk.photo.key, height: 300, width: 400, crop: :fill, class: "card-img-top" %>
           <% else %>
             <%= image_tag('doggie.jpg', class: "card-img-top") %>
           <% end %>
