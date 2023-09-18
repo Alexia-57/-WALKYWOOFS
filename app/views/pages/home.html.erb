@@ -7,19 +7,39 @@
     <h1>Who are we?</h1>
     <br>
     <p>Our mission is to connect dog owners with trusted and passionate dog walkers in their local area. Our platform offers a seamless experience, allowing busy pet parents to easily find and book reliable walkers for their beloved companions. For aspiring dog walkers, Walkywoofs provides an exceptional opportunity to turn their love for dogs into a rewarding career. We prioritize trust, reliability, and the well-being of our furry friends, ensuring that every dog receives the care and attention they deserve.</p>
-  </div>
+  <%# </div> %>
+
+    <%# <div class="home-grid"> %>
+    <%#<% @dogwalks.sample(3).each do |dogwalk| %>
+      <%# <div class="card mt-3" style="width: 18rem; height: 33rem;"> %>
+        <%# <img class="card-img-top" src="assets/example-user.jpg">
+        <div class="card-body"> %>
+          <%#<h3 class="card-title"><%#<%= dogwalk.user.nickname %> <%#</h3>
+          <div class="card-text">
+            <p><strong>Service: </strong><%= dogwalk.service_details %><%#</p>
+            <p><strong>Area: </strong><%= dogwalk.neighborhood %> <%#</p>
+            <p><strong>Price per dog: ¥</strong><%= dogwalk.price_per_dog.to_i %> <%#</p>
+            <p><strong>Walk duration: </strong><%= dogwalk.duration %> <%#</p>
+            <!-- <a href="#" class="dogwalk-link">More details...</a> -->
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <%# </div> %>
 
   <div class="home-grid">
     <% @dogwalks.sample(3).each do |dogwalk| %>
       <div class="card mt-3" style="width: 18rem; height: 33rem;">
-        <img class="card-img-top" src="assets/example-user.jpg">
+        <% if dogwalk.photo.attached? %>
+          <%= cl_image_tag dogwalk.photo.key, height: 300, width: 400, crop: :fill, class: "card-img-top" %>
+        <% else %>
+          <%= image_tag('doggie.jpg', class: "card-img-top") %>
+        <% end %>
         <div class="card-body">
           <h3 class="card-title"><%= dogwalk.user.nickname %></h3>
           <div class="card-text">
             <p><strong>Service: </strong><%= dogwalk.service_details %></p>
             <p><strong>Area: </strong><%= dogwalk.neighborhood %></p>
-            <p><strong>Price per dog: ¥</strong><%= dogwalk.price_per_dog.to_i %></p>
-            <p><strong>Walk duration: </strong><%= dogwalk.duration %> h</p>
             <!-- <a href="#" class="dogwalk-link">More details...</a> -->
           </div>
         </div>

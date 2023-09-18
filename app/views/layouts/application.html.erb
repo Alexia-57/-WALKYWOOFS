@@ -16,8 +16,11 @@
 
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
     <div class="container-fluid">
+      <%#<%= link_to root_path, class: "navbar-brand" do %>
+        <%# <img src="/assets/icon.jpg"> %>
+      <%#<% end %>
       <%= link_to root_path, class: "navbar-brand" do %>
-        <img src="/assets/icon.jpg">
+        <img src="<%= image_path('icon.jpg') %>" alt="Doggie Logo">
       <% end %>
       <!-- <a class="navbar-brand" href="#">
         <img src="app/assets/images/doggie.jpg">
